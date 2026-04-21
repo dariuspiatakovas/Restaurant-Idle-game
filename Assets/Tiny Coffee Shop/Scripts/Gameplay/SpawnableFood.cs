@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class SpawnableFood : MonoBehaviour
+public abstract class SpawnableFood : MonoBehaviour
 {
     [Header(" Settings ")]
-    [SerializeField] private float CleanYOffsetOnPlateau;
-    public float cleanYOffsetOnPlateau => CleanYOffsetOnPlateau;
+    [SerializeField] private float cleanYOffsetOnPlateau;
+    public float CleanYOffsetOnPlateau => cleanYOffsetOnPlateau;
 }

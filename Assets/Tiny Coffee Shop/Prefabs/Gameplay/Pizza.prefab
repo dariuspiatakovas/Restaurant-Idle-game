@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7191010159292817345}
-  - component: {fileID: 4897205722039061302}
+  - component: {fileID: -8520371460572912886}
   m_Layer: 0
-  m_Name: Cup
+  m_Name: Pizza
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 7919758228676776210}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4897205722039061302
+--- !u!114 &-8520371460572912886
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,10 +42,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3635317684751437936}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e356b19980102814b8c2fc4064c3880a, type: 3}
+  m_Script: {fileID: 11500000, guid: 06a3b3b47ab3b5142888d3a00532e80e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CoffeeCup
-  cleanYOffsetOnPlateau: 0.2
+  m_EditorClassIdentifier: Assembly-CSharp::Pizza
+  cleanYOffsetOnPlateau: 0.06
 --- !u!1001 &7665719582824134393
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54,6 +54,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7191010159292817345}
     m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: dafef512d42488e4e9eeb8d478451c51, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dafef512d42488e4e9eeb8d478451c51, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -98,6 +102,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 62f4905286dd77e4ab5b932358800b2f, type: 2}
+    - target: {fileID: -5754084199372789682, guid: dafef512d42488e4e9eeb8d478451c51, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2304508562620316840, guid: 866b00c8d68902b43971c0ab2d34834e, type: 3}
     - target: {fileID: 919132149155446097, guid: dafef512d42488e4e9eeb8d478451c51, type: 3}
       propertyPath: m_Name
       value: Renderer
