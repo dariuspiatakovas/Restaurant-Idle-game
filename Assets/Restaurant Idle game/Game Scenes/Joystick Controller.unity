@@ -1647,6 +1647,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619d858fbf6295b44a7ffb75f2da6d31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CurrencyText
+--- !u!1 &473426674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 473426675}
+  - component: {fileID: 473426676}
+  m_Layer: 0
+  m_Name: Customer Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &473426675
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473426674}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2124703505}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &473426676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473426674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c2452113d39b25448de9658ad5fbced, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CustomerManager
+  customerPrefab: {fileID: 8049458051305423922, guid: 4bd9b9470b6d2184a9b77ce8c0939e43, type: 3}
 --- !u!1001 &482999651
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1737,6 +1782,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 523860081394211607, guid: 9d9016a93e2afb14993f9ab42254fc2b, type: 3}
   m_PrefabInstance: {fileID: 482999651}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &685111449
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 685111450}
+  m_Layer: 0
+  m_Name: Customer Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &685111450
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685111449}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 30.814, y: 0.391, z: -2.934}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 918838693}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &893856880
 GameObject:
   m_ObjectHideFlags: 0
@@ -1782,6 +1858,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 918838693}
+  - component: {fileID: 918838696}
+  - component: {fileID: 918838697}
   - component: {fileID: 918838694}
   m_Layer: 0
   m_Name: Coffee Cashier Station
@@ -1806,6 +1884,7 @@ Transform:
   - {fileID: 180035191}
   - {fileID: 1387385512}
   - {fileID: 2103863662}
+  - {fileID: 685111450}
   m_Father: {fileID: 2024236817}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &918838694
@@ -1829,6 +1908,32 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.26795, y: 2.0574362, z: 1.4744027}
   m_Center: {x: -0.0431273, y: 0.5287185, z: 0.6296619}
+--- !u!114 &918838696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918838692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4a8bd444f94d914db1f2fd10b8f3dbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
+  spawnPoint: {fileID: 685111450}
+  maxCustomers: 10
+--- !u!114 &918838697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918838692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4084a0fa2a6b8b4ab8421545d7f7c1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodServingStation
 --- !u!1 &936917999
 GameObject:
   m_ObjectHideFlags: 0
@@ -2358,6 +2463,7 @@ GameObject:
   - component: {fileID: 1165600371}
   - component: {fileID: 1165600370}
   - component: {fileID: 1165600372}
+  - component: {fileID: 1165600373}
   m_Layer: 0
   m_Name: CoffeeStation
   m_TagString: Untagged
@@ -2419,6 +2525,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.26795, y: 2.0574362, z: 1.4744027}
   m_Center: {x: -0.0431273, y: 0.5287185, z: 0.6296619}
+--- !u!114 &1165600373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165600369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4084a0fa2a6b8b4ab8421545d7f7c1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodServingStation
 --- !u!1001 &1183972637
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4377,6 +4495,7 @@ Transform:
   m_Children:
   - {fileID: 1312559389}
   - {fileID: 278072173}
+  - {fileID: 473426675}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &189583537306038812

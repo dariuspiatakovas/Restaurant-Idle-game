@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAnimator : MonoBehaviour
+public class CustomerAnimator : MonoBehaviour
 {
     [Header(" Elements ")]
     [SerializeField] private Animator animator;
@@ -22,9 +20,9 @@ public class PlayerAnimator : MonoBehaviour
             PlayIdleAnimation();
         }
     }
-    
+
     private void PlayWalkAnimation()
-    { 
+    {
         if (plateau == null)
             animator.Play("Walk");
         else
