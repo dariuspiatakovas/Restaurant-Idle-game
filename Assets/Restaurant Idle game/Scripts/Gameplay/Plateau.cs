@@ -11,6 +11,8 @@ public class Plateau : MonoBehaviour
     private bool isFull;
     public bool IsFull => isFull;
 
+    public bool IsEmpty => GetFirstFullPosition() == null;
+
     private float positionsYOffset;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -56,7 +58,7 @@ public class Plateau : MonoBehaviour
 
     private FoodPosition GetLastFullPosition()
     {
-        for (int i = 0; i < foodPositionsParent.childCount; i++)
+        for (int i = foodPositionsParent.childCount -1; i >= 0; i--)
         {
             if (!foodPositionsParent.GetChild(i).TryGetComponent(out FoodPosition foodPosition))
                 continue;
@@ -66,6 +68,20 @@ public class Plateau : MonoBehaviour
         }
 
         return null; 
+    }
+
+    private FoodPosition GetFirstFullPosition()
+    {
+        for (int i =0; i < foodPositionsParent.childCount; i++)    
+        {
+            if (!foodPositionsParent.GetChild(i).TryGetComponent(out FoodPosition foodPosition))
+                continue;
+
+            if (!foodPosition.IsEmpty)
+                return foodPosition;
+        }
+
+        return null;
     }
 
 
