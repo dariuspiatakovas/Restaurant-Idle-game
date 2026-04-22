@@ -6,20 +6,36 @@ public class CustomerAnimator : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject plateau;
 
-    public void ManageAnimations(Vector3 moveVector, float moveSpeed)
+    [Header(" Settings ")]
+    private bool isSitting;
+    private Vector3 lastVelocity;
+
+    private void Update()
     {
-        if (moveVector.magnitude > 0)
+        if (!isSitting)
+            HandleAnimations();
+    }
+
+    private void HandleAnimations()
+    {
+        if (lastVelocity.magnitude > 0)
         {
-            animator.SetFloat("moveSpeed", moveSpeed / 1.5f);
+            animator.SetFloat("moveSpeed", lastVelocity.magnitude / 1.5f);
             PlayWalkAnimation();
 
-            animator.transform.forward = moveVector.normalized;
+            animator.transform.forward = Vector3.Lerp(animator.transform.forward, lastVelocity.normalized, Time.deltaTime * 60 * .2f);
         }
         else
         {
             PlayIdleAnimation();
         }
     }
+
+    public void ManageAnimations(Vector3 velocity)
+    {
+        lastVelocity = velocity;
+    }
+
 
     private void PlayWalkAnimation()
     {
@@ -45,5 +61,15 @@ public class CustomerAnimator : MonoBehaviour
             else
                 animator.Play("Idle");
         }
+    }
+
+    public void StartWalking()
+    {
+        isSitting = false;
+    }
+
+    public void Stop()
+    {
+        lastVelocity = Vector3.zero;
     }
 }
