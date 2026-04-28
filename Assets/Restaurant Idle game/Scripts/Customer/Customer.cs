@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Customer : MonoBehaviour
@@ -16,6 +17,12 @@ public class Customer : MonoBehaviour
     [SerializeField] private CustomerAnimator animator;
     [SerializeField] private NavigationAbility navigationAbility;
 
+    [Header(" Settings ")]
+    private Vector3 finalFacing;
+
+    [Header(" Actions ")]
+    private Action reachedDestinationCallback;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,6 +34,21 @@ public class Customer : MonoBehaviour
     {
         HandleStateMachine();
     }
+
+
+
+
+    public void Initialize(Vector3 targetPosition, Vector3 FinalFacing)
+    {
+        this.finalFacing = finalFacing;
+        GoToThen(targetPosition, FaceFinalFacing);
+    }
+
+    private void FaceFinalFacing()
+    {
+        animator.Face(finalFacing);
+    }
+
 
     private void HandleStateMachine()
     {
@@ -67,6 +89,13 @@ public class Customer : MonoBehaviour
     private void ReachDestination()
     {
         StartIdleState();
+
+        if(reachedDestinationCallback != null)
+        {
+            reachedDestinationCallback?.Invoke();
+            reachedDestinationCallback = null;
+        }
+       
     }
 
     public void Initialize(Vector3 targetPosition)
@@ -82,6 +111,11 @@ public class Customer : MonoBehaviour
             StartWalkingState();
     }
 
+    private void GoToThen(Vector3 targetPosition, Action callback)
+    {
+         reachedDestinationCallback = callback;
+        GoTo(targetPosition);
+    }
     private void StartWalkingState()
     {
         state = State.Walking;

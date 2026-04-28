@@ -37,6 +37,12 @@ public class CustomerAnimator : MonoBehaviour
     }
 
 
+    public void Face(Vector3 facing)
+    {
+        //transform.forward = facing;
+        animator.transform.forward = facing;
+    }
+
     private void PlayWalkAnimation()
     {
         if (plateau == null)
